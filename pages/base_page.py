@@ -42,13 +42,18 @@ class BasePage:
 
     # CLICKS
 
-    def click_element(self):
-        pass
+    def click_element(self, locator: tuple):
+        try:
+            self.browser.find_element(*locator).click()
+        except:
+            raise AssertionError(f'failed to click element: {locator}')
+
 
     def click_after_scroll(self):
         pass
 
     #Reading function
 
-    def get_visible_text(self):
-        pass
+    def get_visible_text(self, locator: tuple):
+        try:
+            
