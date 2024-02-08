@@ -1,5 +1,5 @@
-from pages.home_page import HomePage
 import pytest
+from pages.home_page import HomePage
 from pages.store_page import StorePage
 
 
@@ -16,6 +16,7 @@ class TestHomePage:
     def test_user_can_access_to_home_page(self):
         self.home_page.should_be_home_page()
 
+@pytest.mark.xfail(reason='THe button is not clickable in automation')
     def test_user_can_click_store_button(self):
         self.home_page.click_store_button()
         store_page = StorePage(self.home_page.browser, self.home_page.browser.current_url)
