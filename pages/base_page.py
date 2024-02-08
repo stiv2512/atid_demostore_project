@@ -59,4 +59,13 @@ class BasePage:
             return self.browser.find_element(*locator).text
         except:
             raise AssertionError(f'Failed to get text from element: {locator}')
+
+    #Lists
+    def get_list_of_elements(self, locator: tuple):
+        elements = self.browser.find_elements(*locator)
+        if len(elements): 
+            return elements
+        else:
+            raise AssertionError(f'Failed to find list of elements: {locator}')
+
         

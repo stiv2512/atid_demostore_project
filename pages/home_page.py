@@ -7,3 +7,7 @@ class HomePage(BasePage):
         assert self.element_is_visible(HomePageLocators.MAIN_TITLE), "Main title is not visible"
         text = self.get_visible_text(HomePageLocators.MAIN_TITLE)
         assert text == self.expected_text, 'Not expected text of main title'
+
+    def click_store_button(self):
+        self.click_element(HomePageLocators.STORE_BUTTON)
+        
